@@ -1,0 +1,1 @@
+#include "Pictos/Core/Log.h"
