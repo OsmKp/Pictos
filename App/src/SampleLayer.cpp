@@ -11,12 +11,12 @@ SampleLayer::SampleLayer()
 
 void SampleLayer::OnUpdate(float dt)
 {
-	std::cout << "SampleLayer Update: " << dt << " seconds" << std::endl;
+	//std::cout << "SampleLayer Update: " << dt << " seconds" << std::endl;
 }
 
 void SampleLayer::OnRender()
 {
-	std::cout << "SampleLayer Render" << std::endl;
+	//std::cout << "SampleLayer Render" << std::endl;
 }
 
 void SampleLayer::OnAttach()
