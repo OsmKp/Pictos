@@ -7,12 +7,14 @@
 class App : public Pictos::Application
 {
 public:
-	App() {
+	App(const Pictos::ApplicationSpecification& spec ) {
 		PushLayer(new SampleLayer());
 	}
 	~App() override = default;
 };
 
 Pictos::Application* Pictos::CreateApplication() {
-	return new App();
+	ApplicationSpecification spec;
+	spec.Name = "AppyAppy";
+	return new App(spec);
 }

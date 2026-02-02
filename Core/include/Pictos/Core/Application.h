@@ -2,6 +2,7 @@
 
 #include "LayerStack.h"
 #include "Event.h"
+#include "Window.h"
 
 #include <glm/glm.hpp>
 
@@ -14,11 +15,18 @@
 
 namespace Pictos
 {
+
+	struct ApplicationSpecification
+	{
+		std::string Name = "Application";
+		WindowSpecification WindowSpec;
+	};
+
 	class Application
 	{
 	public:
 
-		Application();
+		Application(const ApplicationSpecification spec = ApplicationSpecification());
 		virtual ~Application();
 
 		void Run();
@@ -33,10 +41,14 @@ namespace Pictos
 		static Application& Get();
 
 	private:
-		bool OnWindowClose(class WindowCloseEvent& e);
+		bool OnWindowClose(class WindowClosedEvent& e);
+
+		ApplicationSpecification m_Specification;
 
 		bool m_Running = true;
 		LayerStack m_LayerStack;
+
+		std::shared_ptr<Window> m_Window;
 
 		static Application* s_Instance;
 
